@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: e73dd44373b1f1f4cba1230bc6653f1d
+guid: 507fccfbc3e927640b6bb67fd7d7c0c1
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5426634031137898572
+    second: Janosik_0
+  - first:
+      213: 135492424238378015
+    second: Janosik_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +47,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,7 +119,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Janosik_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 576
+        width: 288
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bfbaf7a919b0b4b0800000000000000
+      internalID: -5426634031137898572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Janosik_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 288
+        height: 352
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c2c7854ad51e100800000000000000
+      internalID: 135492424238378015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
