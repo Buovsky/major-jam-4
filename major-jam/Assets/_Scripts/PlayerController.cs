@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     public enum JanosikForms{Walk, Ghost, Hover, Slime}
     public JanosikForms currentForm;
     public LayerMask wall;
-    public LayerMask hole;
     void Start()
     {
         movePoint.parent = null;
@@ -29,20 +28,35 @@ public class PlayerController : MonoBehaviour
             
             if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f && Mathf.Abs(Input.GetAxisRaw("Vertical")) == 0f)
             {
-                if(!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .1f, wall))
+                if(currentForm != JanosikForms.Ghost)
+                {
+                    if(!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .1f, wall))
+                    {
+                        movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                    }
+                }
+                else
                 {
                     movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
-                }
+                }      
+
             }
 
             if(Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 0f)
             {
-                if(!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), .1f, wall))
+                if(currentForm != JanosikForms.Ghost)
+                {
+                   if(!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), .1f, wall))
+                    {
+                        movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+                    } 
+                }
+                else
                 {
                     movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
                 }
-            }
 
+            }
 
         }
     }
@@ -57,6 +71,34 @@ public class PlayerController : MonoBehaviour
                     SceneManager.LoadScene(currentScene.name);
                 }
                 break;
+
+            case JanosikForms.Ghost:
+            {
+                if(other.tag == "Fire" || other.tag == "Hole")
+                {
+                    SceneManager.LoadScene(currentScene.name);
+                }
+                break;
+            }
+
+            case JanosikForms.Hover:
+            {
+                if(other.tag == "Fire")
+                {
+                    SceneManager.LoadScene(currentScene.name);
+                }
+                break;
+            }
+
+            case JanosikForms.Slime:
+            {
+                if(other.tag == "Hole")
+                {
+                    SceneManager.LoadScene(currentScene.name);
+                }
+                break;
+            }
+
             default:
                 Debug.Log("No form");
                 break;
