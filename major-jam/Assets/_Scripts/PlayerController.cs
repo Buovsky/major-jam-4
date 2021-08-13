@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private Scene _currentScene;
+    private Terminal _terminal;
     
     public float MoveSpeed = 5f;
     public Transform MovePoint;
     public int ActionPoints;
     public int MoveDistance;
-    
 
     public enum JanosikForms
     {
@@ -29,12 +29,15 @@ public class PlayerController : MonoBehaviour
         MovePoint.parent = null;
         CurrentForm = JanosikForms.Walk;
         _currentScene = SceneManager.GetActiveScene();
+        _terminal = FindObjectOfType<Terminal>();
     }
 
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, MovePoint.position, MoveSpeed * Time.deltaTime);
 
+        if (_terminal.IsVisible) return;
+        
         if (Vector3.Distance(transform.position, MovePoint.position) <= .05f)
         {
             if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f && Mathf.Abs(Input.GetAxisRaw("Vertical")) == 0f)
