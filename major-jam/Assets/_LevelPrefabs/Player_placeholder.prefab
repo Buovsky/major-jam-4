@@ -98,13 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325c718e706d70d4687e3a31aecc62f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  movePoint: {fileID: 6060515840930393402}
-  currentForm: 0
-  wall:
-    serializedVersion: 2
-    m_Bits: 64
-  hole:
+  MoveSpeed: 5
+  MovePoint: {fileID: 6060515840930393402}
+  ActionPoints: 0
+  MoveDistance: 0
+  CurrentForm: 0
+  Wall:
     serializedVersion: 2
     m_Bits: 0
 --- !u!61 &8030938467680771241

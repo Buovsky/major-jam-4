@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +10,11 @@ public class Terminal : MonoBehaviour
     [SerializeField] private GameObject _terminal;
     [SerializeField] private InputField _field;
     [SerializeField] private Text _stdout;
+    [SerializeField] private PlayerController _playerController;
     
     void Start()
     {
+        _playerController = FindObjectOfType<PlayerController>();
         _terminal.gameObject.SetActive(false);
     }
 
@@ -39,8 +43,8 @@ public class Terminal : MonoBehaviour
         string normalizedCode = code.Trim();
         if (normalizedCode.Length == 0) return;
 
-        string[] command = normalizedCode.Split(' ');
-
+        string[] command = normalizedCode.ToLower().Split(' ');
+Debug.Log(command[0] + " " + command[1] + command.Length);
         if (command[0] == "pwd")
             WriteOutput("/home/janosik/");
         else if (command[0] == "ls")
@@ -49,6 +53,14 @@ public class Terminal : MonoBehaviour
             WriteOutput("Broken command, search for floppy disks to recover data...");
         else if (command[0] == "git" && command[1] == "push")
             WriteOutput("I hate push ups lol...");
+        else if (command.Length == 2 && command[0] == "set_on_move")
+            _playerController.SetJanosikForm(command[1]);        
+        else if (command.Length == 2 && command[0] == "set_ap")
+            _playerController.ActionPoints = Convert.ToInt16(command[1]);
+        else if (command.Length == 2 && command[0] == "set_move_distance")
+            _playerController.MoveDistance = Convert.ToInt16(command[1]);
+        else if (command.Length == 3 && command[0] == "tp_player_to")
+            _playerController.TeleportTo(Convert.ToInt16(command[1]), Convert.ToInt16(command[2]));
         else
             WriteOutput("Unknown command");
     }

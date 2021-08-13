@@ -5,97 +5,84 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    Scene currentScene;
-    public float moveSpeed = 5f;
-    public Transform movePoint;
+    private Scene _currentScene;
+    
+    public float MoveSpeed = 5f;
+    public Transform MovePoint;
+    public int ActionPoints;
+    public int MoveDistance;
+    
 
-    public enum JanosikForms{Walk, Ghost, Hover, Slime}
-    public JanosikForms currentForm;
-    public LayerMask wall;
-    void Start()
+    public enum JanosikForms
     {
-        movePoint.parent = null;
-        currentForm = JanosikForms.Walk;
-        currentScene = SceneManager.GetActiveScene();
+        Walk,
+        Ghost,
+        Hover,
+        Slime
     }
 
-    void Update()
+    public JanosikForms CurrentForm;
+    public LayerMask Wall;
+
+    private void Start()
     {
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+        MovePoint.parent = null;
+        CurrentForm = JanosikForms.Walk;
+        _currentScene = SceneManager.GetActiveScene();
+    }
 
-        if(Vector3.Distance(transform.position, movePoint.position) <= .05f)
+    private void Update()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, MovePoint.position, MoveSpeed * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, MovePoint.position) <= .05f)
         {
-            
-            if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f && Mathf.Abs(Input.GetAxisRaw("Vertical")) == 0f)
+            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f && Mathf.Abs(Input.GetAxisRaw("Vertical")) == 0f)
             {
-                if(currentForm != JanosikForms.Ghost)
+                if (CurrentForm != JanosikForms.Ghost)
                 {
-                    if(!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .1f, wall))
-                    {
-                        movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
-                    }
+                    if (!Physics2D.OverlapCircle(
+                        MovePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .1f, Wall))
+                        MovePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
                 }
                 else
                 {
-                    movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
-                }      
-
+                    MovePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                }
             }
 
-            if(Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 0f)
+            if (Mathf.Abs(Input.GetAxisRaw("Vertical")) != 1f ||
+                Mathf.Abs(Input.GetAxisRaw("Horizontal")) != 0f) return;
+            if (CurrentForm != JanosikForms.Ghost)
             {
-                if(currentForm != JanosikForms.Ghost)
-                {
-                   if(!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), .1f, wall))
-                    {
-                        movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
-                    } 
-                }
-                else
-                {
-                    movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
-                }
-
+                if (!Physics2D.OverlapCircle(MovePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f),
+                    .1f, Wall)) MovePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
             }
-
+            else
+            {
+                MovePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+            }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other) 
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        switch(currentForm)
+        switch (CurrentForm)
         {
             case JanosikForms.Walk:
-                if(other.tag == "Fire" || other.tag == "Hole")
-                {
-                    SceneManager.LoadScene(currentScene.name);
-                }
-                break;
-
             case JanosikForms.Ghost:
-            {
-                if(other.tag == "Fire" || other.tag == "Hole")
-                {
-                    SceneManager.LoadScene(currentScene.name);
-                }
+                if (other.CompareTag("Fire") || other.CompareTag("Hole")) SceneManager.LoadScene(_currentScene.name);
                 break;
-            }
 
             case JanosikForms.Hover:
             {
-                if(other.tag == "Fire")
-                {
-                    SceneManager.LoadScene(currentScene.name);
-                }
+                if (other.CompareTag("Fire")) SceneManager.LoadScene(_currentScene.name);
                 break;
             }
 
             case JanosikForms.Slime:
             {
-                if(other.tag == "Hole")
-                {
-                    SceneManager.LoadScene(currentScene.name);
-                }
+                if (other.CompareTag("Hole")) SceneManager.LoadScene(_currentScene.name);
                 break;
             }
 
@@ -104,5 +91,25 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
-    
+
+    public void SetJanosikForm(string form)
+    {
+        CurrentForm = form switch
+        {
+            "walk" => JanosikForms.Walk,
+            "passing_through" => JanosikForms.Ghost,
+            "hover" => JanosikForms.Hover,
+            "slime_on" => JanosikForms.Slime,
+            _ => CurrentForm
+        };
+    }
+
+    public void TeleportTo(int x, int y)
+    {
+        float ax = -8.5f + x;
+        float ay = 4.5f - y;
+
+        transform.position = new Vector3(ax, ay, 0);
+        MovePoint.transform.position = transform.position;
+    }
 }
