@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private Scene _currentScene;
     private Terminal _terminal;
+    private LevelController _levelController;
     
     public float MoveSpeed = 5f;
     public Transform MovePoint;
@@ -30,6 +31,8 @@ public class PlayerController : MonoBehaviour
         CurrentForm = JanosikForms.Walk;
         _currentScene = SceneManager.GetActiveScene();
         _terminal = FindObjectOfType<Terminal>();
+        _levelController = FindObjectOfType<LevelController>();
+        ActionPoints = _levelController.ActionPoints;
     }
 
     private void Update()
