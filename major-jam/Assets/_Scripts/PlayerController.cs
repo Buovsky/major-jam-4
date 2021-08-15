@@ -43,30 +43,41 @@ public class PlayerController : MonoBehaviour
         
         if (Vector3.Distance(transform.position, MovePoint.position) <= .05f)
         {
-            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f && Mathf.Abs(Input.GetAxisRaw("Vertical")) == 0f)
+            
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) ||
+                Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.UpArrow) ||
+                Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) ||
+                Input.GetKeyDown(KeyCode.RightArrow))
             {
-                if (CurrentForm != JanosikForms.Ghost)
+                if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f && Mathf.Abs(Input.GetAxisRaw("Vertical")) == 0f)
                 {
-                    if (!Physics2D.OverlapCircle(
-                        MovePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .1f, Wall))
+                    if (CurrentForm != JanosikForms.Ghost)
+                    {
+                        if (!Physics2D.OverlapCircle(
+                            MovePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .1f, Wall))
+                            MovePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                    }
+                    else
+                    {
                         MovePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                    }
                 }
-                else
-                {
-                    MovePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
-                }
-            }
 
-            if (Mathf.Abs(Input.GetAxisRaw("Vertical")) != 1f ||
-                Mathf.Abs(Input.GetAxisRaw("Horizontal")) != 0f) return;
-            if (CurrentForm != JanosikForms.Ghost)
-            {
-                if (!Physics2D.OverlapCircle(MovePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f),
-                    .1f, Wall)) MovePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
-            }
-            else
-            {
-                MovePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+                if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f && Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 0f)
+                {
+                    if (CurrentForm != JanosikForms.Ghost)
+                    {
+                        if (!Physics2D.OverlapCircle(MovePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f),
+                            .1f, Wall)) MovePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+                    }
+                    else
+                    {
+                        MovePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+                    }
+                }
+
+                
+                ActionPoints--;
             }
         }
     }
