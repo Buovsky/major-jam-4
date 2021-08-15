@@ -25,7 +25,7 @@ public class TutorialController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other) 
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || (other.gameObject.CompareTag("PlayerNotWalk")))
         {
             _tutorialObj.SetActive(false);
         }
