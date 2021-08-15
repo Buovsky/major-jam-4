@@ -88,6 +88,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 ActionPoints--;
+                if(ActionPoints == -1) SceneManager.LoadScene(_currentScene.name);
             }
         }
     }
