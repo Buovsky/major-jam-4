@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 49263937}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
   CurrentForm: 0
   Wall:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!61 &8030938467680771241
 BoxCollider2D:
   m_ObjectHideFlags: 0
