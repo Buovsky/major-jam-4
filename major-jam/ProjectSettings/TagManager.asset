@@ -7,6 +7,8 @@ TagManager:
   - Fire
   - Hole
   - Button
+  - Floppy
+  - Computer
   layers:
   - Default
   - TransparentFX
