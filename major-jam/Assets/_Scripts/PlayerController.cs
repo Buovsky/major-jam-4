@@ -108,6 +108,15 @@ public class PlayerController : MonoBehaviour
             "slime_on" => JanosikForms.Slime,
             _ => CurrentForm
         };
+
+        if(CurrentForm == JanosikForms.Walk)
+        {
+            gameObject.tag = "Player";
+        }
+        else
+        {
+            gameObject.tag = "PlayerNotWalk";
+        }
     }
 
     public void TeleportTo(int x, int y)

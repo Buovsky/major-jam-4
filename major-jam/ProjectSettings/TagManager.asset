@@ -9,6 +9,7 @@ TagManager:
   - Button
   - Floppy
   - Computer
+  - PlayerNotWalk
   layers:
   - Default
   - TransparentFX
