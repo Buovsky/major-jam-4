@@ -314,6 +314,20 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1321353729875459961, guid: feb130c4d25536f4588bcdce4aa3dc5e, type: 3}
+      propertyPath: m_Text
+      value: 'CHEATER TIP
+
+        Change form to avoide holes: set_on_move hover
+
+        Change
+        to natural form: set_on_move walk
+
+        Warning!
+
+        You can interact
+        with objects using ONLY natural form'
+      objectReference: {fileID: 0}
     - target: {fileID: 2196369403062820741, guid: feb130c4d25536f4588bcdce4aa3dc5e, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -435,8 +449,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8407563029220934463, guid: feb130c4d25536f4588bcdce4aa3dc5e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 321.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407563029220934463, guid: feb130c4d25536f4588bcdce4aa3dc5e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413266913297435125, guid: feb130c4d25536f4588bcdce4aa3dc5e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 321.7
       objectReference: {fileID: 0}
     - target: {fileID: 8666143297809443715, guid: feb130c4d25536f4588bcdce4aa3dc5e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -499,6 +521,10 @@ PrefabInstance:
     - target: {fileID: 2666325530427922472, guid: e7d2fa3640e29bc43a2eefd4c2da6894, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447451192435107122, guid: e7d2fa3640e29bc43a2eefd4c2da6894, type: 3}
+      propertyPath: ActionPoints
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8829017508849836439, guid: e7d2fa3640e29bc43a2eefd4c2da6894, type: 3}
       propertyPath: m_Name
