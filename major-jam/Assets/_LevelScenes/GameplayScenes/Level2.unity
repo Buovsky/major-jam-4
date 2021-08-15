@@ -316,9 +316,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1321353729875459961, guid: feb130c4d25536f4588bcdce4aa3dc5e, type: 3}
       propertyPath: m_Text
-      value: 'CHEATER TIP
+      value: 'TIP:
 
-        Change form to avoide holes: set_on_move hover
+        Change form to avoid holes: set_on_move hover
 
         Change
         to natural form: set_on_move walk
@@ -524,7 +524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4447451192435107122, guid: e7d2fa3640e29bc43a2eefd4c2da6894, type: 3}
       propertyPath: ActionPoints
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8829017508849836439, guid: e7d2fa3640e29bc43a2eefd4c2da6894, type: 3}
       propertyPath: m_Name
