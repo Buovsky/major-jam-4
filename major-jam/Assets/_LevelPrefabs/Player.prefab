@@ -212,6 +212,10 @@ MonoBehaviour:
   Wall:
     serializedVersion: 2
     m_Bits: 64
+  defaultSprite: {fileID: 82021193439832080}
+  hoverSprite: {fileID: 5016550709168239574}
+  ghostSprite: {fileID: 1985036496901164050}
+  slimeSprite: {fileID: 3013459501056856704}
 --- !u!61 &8030938467680771241
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -534,7 +538,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 3856358692550247551, guid: c5563fa3f4b31fe4da3d064015302b92, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

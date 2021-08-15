@@ -25,6 +25,11 @@ public class PlayerController : MonoBehaviour
     public JanosikForms CurrentForm;
     public LayerMask Wall;
 
+    public GameObject defaultSprite;
+    public GameObject hoverSprite;
+    public GameObject ghostSprite;
+    public GameObject slimeSprite;
+
     private void Start()
     {
         MovePoint.parent = null;
@@ -132,6 +137,45 @@ public class PlayerController : MonoBehaviour
         else
         {
             gameObject.tag = "PlayerNotWalk";
+        }
+
+                switch (CurrentForm)
+        {
+            case JanosikForms.Walk:
+                defaultSprite.SetActive(true);
+                hoverSprite.SetActive(false);
+                ghostSprite.SetActive(false);
+                slimeSprite.SetActive(false);
+                break;
+
+            case JanosikForms.Ghost:
+                defaultSprite.SetActive(false);
+                ghostSprite.SetActive(true);
+                hoverSprite.SetActive(false);
+                slimeSprite.SetActive(false);
+                break;
+                
+            case JanosikForms.Hover:
+            {
+                defaultSprite.SetActive(false);
+                ghostSprite.SetActive(false);
+                hoverSprite.SetActive(true);
+                slimeSprite.SetActive(false);
+                break;
+            }
+
+            case JanosikForms.Slime:
+            {
+                defaultSprite.SetActive(false);
+                ghostSprite.SetActive(false);
+                hoverSprite.SetActive(false);
+                slimeSprite.SetActive(true);
+                break;
+            }
+
+            default:
+                Debug.Log("No form");
+                break;
         }
     }
 
