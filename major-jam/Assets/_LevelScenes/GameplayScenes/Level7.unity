@@ -1064,7 +1064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8535400871191034809, guid: d77c047ab319b4b41805919defdeadf8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8535400871324482508, guid: d77c047ab319b4b41805919defdeadf8, type: 3}
       propertyPath: m_Enabled
@@ -1076,7 +1076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8535400872267717338, guid: d77c047ab319b4b41805919defdeadf8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d77c047ab319b4b41805919defdeadf8, type: 3}
@@ -1316,8 +1316,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: "\nGalactic Burgrave: \"HAHAHA! You fall in my trap! \nNow this Space Station
-    will be a prison for you and Maryna! \nBUHAHAHA\"!"
+  m_Text: "\nGalactic Burgrave: \"HAHAHA! You fall into my trap! \nNow this Space
+    Station will be a prison for you and Maryna! \nBUHAHAHA\"!"
 --- !u!222 &307583695
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3731,7 +3731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8535400871191034809, guid: d77c047ab319b4b41805919defdeadf8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8535400871324482508, guid: d77c047ab319b4b41805919defdeadf8, type: 3}
       propertyPath: m_Enabled
@@ -3743,7 +3743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8535400872267717338, guid: d77c047ab319b4b41805919defdeadf8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d77c047ab319b4b41805919defdeadf8, type: 3}
