@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_LevelScenes/MainMenu.unity
     guid: 665686bb35a3e144cb85415cb15915c4
-  - enabled: 1
-    path: Assets/_LevelScenes/GameplayScenes/Level2.unity
-    guid: 9c180833746768b408a2e05ba501dab1
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
@@ -20,4 +17,28 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/_LevelScenes/GameplayScenes/Level1.unity
+    guid: 45b6e9b932a85b949b7b566e8f110def
+  - enabled: 1
+    path: Assets/_LevelScenes/GameplayScenes/Level2.unity
+    guid: b0398650660d9884b94f05325096be44
+  - enabled: 1
+    path: Assets/_LevelScenes/GameplayScenes/Level3.unity
+    guid: 701f016a0eac13c4ca388f8973d37165
+  - enabled: 1
+    path: Assets/_LevelScenes/GameplayScenes/Level4.unity
+    guid: 9c180833746768b408a2e05ba501dab1
+  - enabled: 1
+    path: Assets/_LevelScenes/GameplayScenes/Level5.unity
+    guid: a559ca28bd6e8ea4281e8715585bcf4b
+  - enabled: 1
+    path: Assets/_LevelScenes/GameplayScenes/Level6.unity
+    guid: 83a51099fea7f8f43a3801f11678ddcd
+  - enabled: 1
+    path: Assets/_LevelScenes/GameplayScenes/Level7.unity
+    guid: 14644ed3593d6014299caa0b5be4eb57
+  - enabled: 1
+    path: Assets/_LevelScenes/GameplayScenes/Level8_End.unity
+    guid: 13f43bd3e4761da4ba66ae5c4ce2a534
   m_configObjects: {}
