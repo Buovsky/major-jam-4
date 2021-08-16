@@ -39,6 +39,6 @@ public class MenuScript : MonoBehaviour
 
     void LoadGameplay()
     {
-        SceneManager.LoadScene("_LevelScenes/GameplayScenes/Level2");
+        SceneManager.LoadScene("_LevelScenes/GameplayScenes/Level1");
     }
 }
