@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Linq;
 
 public class Terminal : MonoBehaviour
 {
@@ -8,8 +10,11 @@ public class Terminal : MonoBehaviour
     [SerializeField] private InputField _field;
     [SerializeField] private Text _stdout;
     [SerializeField] private PlayerController _playerController;
+    private List<string> _codeHistory = new List<string>();
+    private int _listCounter = 0;
 
     public bool IsVisible; 
+
     
     void Start()
     {
@@ -35,10 +40,29 @@ public class Terminal : MonoBehaviour
         
         if (_field.gameObject.activeSelf && Input.GetKeyDown(KeyCode.Return))
         {
+            _codeHistory.Add(_field.text);
             ProcessCode(_field.text);
             _field.text = "";
             _field.Select();
             _field.ActivateInputField();
+        }
+        
+        if (_field.gameObject.activeSelf && _codeHistory.Count > 0 && Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            //TODO: Add list size validator
+            _listCounter++;
+            _field.text = _codeHistory[_codeHistory.Count - _listCounter];
+            _field.MoveTextEnd(false);
+            
+        }
+
+        if (_field.gameObject.activeSelf && _codeHistory.Count > 0 && Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            //TODO: check if not negative or 0
+            _listCounter--;
+            _field.text = _codeHistory[_codeHistory.Count - _listCounter];
+            _field.MoveTextEnd(false);
+            
         }
     }
     
