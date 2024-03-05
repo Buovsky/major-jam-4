@@ -92,23 +92,23 @@ public class Terminal : MonoBehaviour
             WriteOutput("Broken command, search for floppy disks to recover data...");
         else if (command[0] == "git" && command[1] == "push")
             WriteOutput("I hate push ups lol...");
-        else if (command.Length == 2 && command[0] == "set_on_move")
+        else if (command.Length == 2 && command[0] == "set move mode")
         {
             WriteOutput("Setting mode to: " + command[1]);
             _playerController.SetJanosikForm(command[1]);
         }
-        else if (command.Length == 2 && command[0] == "set_ap")
+        else if (command.Length == 2 && command[0] == "set ap")
         {
             _playerController.ActionPoints = Convert.ToInt16(command[1]);
 
             WriteOutput("Hacking action points... ");
         }
-        else if (command.Length == 2 && command[0] == "set_move_distance")
+        else if (command.Length == 2 && command[0] == "set move distance")
         {
             WriteOutput("Overriding move distance with value=" + command[1]);
             _playerController.MoveDistance = Convert.ToInt16(command[1]);
         }
-        else if (command.Length == 3 && command[0] == "tp_player_to")
+        else if (command.Length == 3 && command[0] == "tp player to")
         {
             _playerController.TeleportTo(Convert.ToInt16(command[1]), Convert.ToInt16(command[2]));
             WriteOutput("Teleporting to (" + Convert.ToInt16(command[1] + ", " + Convert.ToInt16(command[2]) + ")"));
