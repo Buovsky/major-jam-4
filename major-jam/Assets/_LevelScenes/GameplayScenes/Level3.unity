@@ -561,15 +561,15 @@ PrefabInstance:
       propertyPath: m_Text
       value: 'TIP:
 
-        Change form to avoid holes: set_on_move <b>hover</b>
+        Change form to avoid holes: set_on_move hover
 
         Change
-        to natural form: set_on_move <b>walk</b>
+        to natural form: set_on_move walk
 
         Remember!
 
-        You
-        can <b>interact</b> with objects using ONLY <b>walk</b> form.'
+        You can interact
+        with objects using ONLY natural form.'
       objectReference: {fileID: 0}
     - target: {fileID: 1321353729875459961, guid: feb130c4d25536f4588bcdce4aa3dc5e, type: 3}
       propertyPath: m_FontData.m_LineSpacing
