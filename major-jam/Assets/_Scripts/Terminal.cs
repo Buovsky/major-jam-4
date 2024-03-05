@@ -26,9 +26,11 @@ public class Terminal : MonoBehaviour
     {
         if (!_terminal.gameObject.activeSelf && Input.GetKeyDown(KeyCode.BackQuote))
         {
+            _listCounter = 0;
             _terminal.gameObject.SetActive(true);
             _field.Select();
             _field.ActivateInputField();
+            _field.text = "";
             IsVisible = true;
         }
 
@@ -49,18 +51,27 @@ public class Terminal : MonoBehaviour
         
         if (_field.gameObject.activeSelf && _codeHistory.Count > 0 && Input.GetKeyDown(KeyCode.UpArrow))
         {
-            //TODO: Add list size validator
-            _listCounter++;
-            _field.text = _codeHistory[_codeHistory.Count - _listCounter];
+
+            if(_listCounter <= _codeHistory.Count - 1)
+            {
+                _listCounter++;                
+            
+                Debug.Log(_listCounter);
+                _field.text = _codeHistory[_codeHistory.Count - _listCounter];
+            }
             _field.MoveTextEnd(false);
             
         }
 
         if (_field.gameObject.activeSelf && _codeHistory.Count > 0 && Input.GetKeyDown(KeyCode.DownArrow))
         {
-            //TODO: check if not negative or 0
-            _listCounter--;
-            _field.text = _codeHistory[_codeHistory.Count - _listCounter];
+            if(_listCounter > 1)
+            {
+                _listCounter--;
+            
+                Debug.Log(_listCounter);
+                _field.text = _codeHistory[_codeHistory.Count - _listCounter];
+            }
             _field.MoveTextEnd(false);
             
         }
